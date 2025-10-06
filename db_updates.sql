@@ -149,3 +149,23 @@ CREATE TABLE hospital_procedures (
     FOREIGN KEY (hospital_id) REFERENCES hospitals(id),
     FOREIGN KEY (procedure_id) REFERENCES procedures(id)
 );
+
+
+ALTER TABLE cities ADD COLUMN slug VARCHAR(150);
+ALTER TABLE specializations ADD COLUMN slug VARCHAR(150);
+ALTER TABLE doctors ADD COLUMN slug VARCHAR(150);
+ALTER TABLE hospitals ADD COLUMN slug VARCHAR(150);
+ALTER TABLE clinics ADD COLUMN slug VARCHAR(150);
+
+
+ALTER TABLE hospitals ADD COLUMN area VARCHAR(100);
+ALTER TABLE clinics ADD COLUMN area VARCHAR(100);
+ALTER TABLE doctors ADD COLUMN area VARCHAR(100);
+
+ALTER TABLE doctors ADD COLUMN rating DECIMAL(3,2) DEFAULT 0;
+ALTER TABLE doctors ADD COLUMN consultation_fee DECIMAL(10,2) DEFAULT 0;
+
+
+ALTER TABLE doctors ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
+ALTER TABLE hospitals ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
+ALTER TABLE clinics ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
