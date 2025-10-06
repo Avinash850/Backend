@@ -169,3 +169,11 @@ ALTER TABLE doctors ADD COLUMN consultation_fee DECIMAL(10,2) DEFAULT 0;
 ALTER TABLE doctors ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
 ALTER TABLE hospitals ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
 ALTER TABLE clinics ADD COLUMN status ENUM('active', 'inactive') DEFAULT 'active';
+
+
+CREATE TABLE areas (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100),
+  city_id INT,
+  FOREIGN KEY (city_id) REFERENCES cities(id)
+);
